@@ -54,7 +54,7 @@ public class Hook implements IXposedHookLoadPackage {
                         break;
                 }
 
-                sendBroadcast(getCurrentApplication(), String.format("using %s camera(legacy)", facingStr));
+                sendBroadcast(getCurrentApplication(), String.format("used %s camera(legacy)", facingStr));
             }
         });
     }
@@ -108,7 +108,7 @@ public class Hook implements IXposedHookLoadPackage {
                         }
 
                         sendBroadcast(getCurrentApplication(),
-                                String.format("using %s camera(legacy)", facingStr));
+                                String.format("used %s camera(legacy)", facingStr));
                     }
                 });
     }

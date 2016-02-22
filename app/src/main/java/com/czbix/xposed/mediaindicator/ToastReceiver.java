@@ -27,6 +27,10 @@ public class ToastReceiver extends BroadcastReceiver {
         try {
             final PackageManager packageManager = context.getPackageManager();
             final ApplicationInfo appInfo = packageManager.getApplicationInfo(pkgName, 0);
+            if ((appInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0) {
+                return;
+            }
+
             label = packageManager.getApplicationLabel(appInfo);
         } catch (PackageManager.NameNotFoundException e) {
             // ignore it
